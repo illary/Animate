@@ -1,0 +1,458 @@
+Created by PLY version 3.8 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> expression
+Rule 1     expression -> CREATEFRAME LPAREN NUMBER COM NUMBER RPAREN
+Rule 2     expression -> ID RECTANGLE LPAREN NUMBER COM NUMBER COM NUMBER COM NUMBER RPAREN
+Rule 3     expression -> ID TRIANGLE LPAREN NUMBER COM NUMBER COM NUMBER COM NUMBER COM NUMBER COM NUMBER RPAREN
+Rule 4     expression -> ID CIRCLE LPAREN NUMBER COM NUMBER COM NUMBER RPAREN
+Rule 5     expression -> IMAGE LPAREN ID COM NUMBER COM NUMBER RPAREN
+Rule 6     expression -> ANIMATE LPAREN NUMBER COM NUMBER COM NUMBER COM NUMBER RPAREN
+
+Terminals, with rules where they appear
+
+ANIMATE              : 6
+CIRCLE               : 4
+COM                  : 1 2 2 2 3 3 3 3 3 4 4 5 5 6 6 6
+CREATEFRAME          : 1
+ID                   : 2 3 4 5
+IMAGE                : 5
+LPAREN               : 1 2 3 4 5 6
+NUMBER               : 1 1 2 2 2 2 3 3 3 3 3 3 4 4 4 5 5 6 6 6 6
+RECTANGLE            : 2
+RPAREN               : 1 2 3 4 5 6
+TRIANGLE             : 3
+error                : 
+
+Nonterminals, with rules where they appear
+
+expression           : 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . expression
+    (1) expression -> . CREATEFRAME LPAREN NUMBER COM NUMBER RPAREN
+    (2) expression -> . ID RECTANGLE LPAREN NUMBER COM NUMBER COM NUMBER COM NUMBER RPAREN
+    (3) expression -> . ID TRIANGLE LPAREN NUMBER COM NUMBER COM NUMBER COM NUMBER COM NUMBER COM NUMBER RPAREN
+    (4) expression -> . ID CIRCLE LPAREN NUMBER COM NUMBER COM NUMBER RPAREN
+    (5) expression -> . IMAGE LPAREN ID COM NUMBER COM NUMBER RPAREN
+    (6) expression -> . ANIMATE LPAREN NUMBER COM NUMBER COM NUMBER COM NUMBER RPAREN
+
+    CREATEFRAME     shift and go to state 3
+    ID              shift and go to state 4
+    IMAGE           shift and go to state 2
+    ANIMATE         shift and go to state 5
+
+    expression                     shift and go to state 1
+
+state 1
+
+    (0) S' -> expression .
+
+
+
+state 2
+
+    (5) expression -> IMAGE . LPAREN ID COM NUMBER COM NUMBER RPAREN
+
+    LPAREN          shift and go to state 6
+
+
+state 3
+
+    (1) expression -> CREATEFRAME . LPAREN NUMBER COM NUMBER RPAREN
+
+    LPAREN          shift and go to state 7
+
+
+state 4
+
+    (2) expression -> ID . RECTANGLE LPAREN NUMBER COM NUMBER COM NUMBER COM NUMBER RPAREN
+    (3) expression -> ID . TRIANGLE LPAREN NUMBER COM NUMBER COM NUMBER COM NUMBER COM NUMBER COM NUMBER RPAREN
+    (4) expression -> ID . CIRCLE LPAREN NUMBER COM NUMBER COM NUMBER RPAREN
+
+    RECTANGLE       shift and go to state 8
+    TRIANGLE        shift and go to state 9
+    CIRCLE          shift and go to state 10
+
+
+state 5
+
+    (6) expression -> ANIMATE . LPAREN NUMBER COM NUMBER COM NUMBER COM NUMBER RPAREN
+
+    LPAREN          shift and go to state 11
+
+
+state 6
+
+    (5) expression -> IMAGE LPAREN . ID COM NUMBER COM NUMBER RPAREN
+
+    ID              shift and go to state 12
+
+
+state 7
+
+    (1) expression -> CREATEFRAME LPAREN . NUMBER COM NUMBER RPAREN
+
+    NUMBER          shift and go to state 13
+
+
+state 8
+
+    (2) expression -> ID RECTANGLE . LPAREN NUMBER COM NUMBER COM NUMBER COM NUMBER RPAREN
+
+    LPAREN          shift and go to state 14
+
+
+state 9
+
+    (3) expression -> ID TRIANGLE . LPAREN NUMBER COM NUMBER COM NUMBER COM NUMBER COM NUMBER COM NUMBER RPAREN
+
+    LPAREN          shift and go to state 15
+
+
+state 10
+
+    (4) expression -> ID CIRCLE . LPAREN NUMBER COM NUMBER COM NUMBER RPAREN
+
+    LPAREN          shift and go to state 16
+
+
+state 11
+
+    (6) expression -> ANIMATE LPAREN . NUMBER COM NUMBER COM NUMBER COM NUMBER RPAREN
+
+    NUMBER          shift and go to state 17
+
+
+state 12
+
+    (5) expression -> IMAGE LPAREN ID . COM NUMBER COM NUMBER RPAREN
+
+    COM             shift and go to state 18
+
+
+state 13
+
+    (1) expression -> CREATEFRAME LPAREN NUMBER . COM NUMBER RPAREN
+
+    COM             shift and go to state 19
+
+
+state 14
+
+    (2) expression -> ID RECTANGLE LPAREN . NUMBER COM NUMBER COM NUMBER COM NUMBER RPAREN
+
+    NUMBER          shift and go to state 20
+
+
+state 15
+
+    (3) expression -> ID TRIANGLE LPAREN . NUMBER COM NUMBER COM NUMBER COM NUMBER COM NUMBER COM NUMBER RPAREN
+
+    NUMBER          shift and go to state 21
+
+
+state 16
+
+    (4) expression -> ID CIRCLE LPAREN . NUMBER COM NUMBER COM NUMBER RPAREN
+
+    NUMBER          shift and go to state 22
+
+
+state 17
+
+    (6) expression -> ANIMATE LPAREN NUMBER . COM NUMBER COM NUMBER COM NUMBER RPAREN
+
+    COM             shift and go to state 23
+
+
+state 18
+
+    (5) expression -> IMAGE LPAREN ID COM . NUMBER COM NUMBER RPAREN
+
+    NUMBER          shift and go to state 24
+
+
+state 19
+
+    (1) expression -> CREATEFRAME LPAREN NUMBER COM . NUMBER RPAREN
+
+    NUMBER          shift and go to state 25
+
+
+state 20
+
+    (2) expression -> ID RECTANGLE LPAREN NUMBER . COM NUMBER COM NUMBER COM NUMBER RPAREN
+
+    COM             shift and go to state 26
+
+
+state 21
+
+    (3) expression -> ID TRIANGLE LPAREN NUMBER . COM NUMBER COM NUMBER COM NUMBER COM NUMBER COM NUMBER RPAREN
+
+    COM             shift and go to state 27
+
+
+state 22
+
+    (4) expression -> ID CIRCLE LPAREN NUMBER . COM NUMBER COM NUMBER RPAREN
+
+    COM             shift and go to state 28
+
+
+state 23
+
+    (6) expression -> ANIMATE LPAREN NUMBER COM . NUMBER COM NUMBER COM NUMBER RPAREN
+
+    NUMBER          shift and go to state 29
+
+
+state 24
+
+    (5) expression -> IMAGE LPAREN ID COM NUMBER . COM NUMBER RPAREN
+
+    COM             shift and go to state 30
+
+
+state 25
+
+    (1) expression -> CREATEFRAME LPAREN NUMBER COM NUMBER . RPAREN
+
+    RPAREN          shift and go to state 31
+
+
+state 26
+
+    (2) expression -> ID RECTANGLE LPAREN NUMBER COM . NUMBER COM NUMBER COM NUMBER RPAREN
+
+    NUMBER          shift and go to state 32
+
+
+state 27
+
+    (3) expression -> ID TRIANGLE LPAREN NUMBER COM . NUMBER COM NUMBER COM NUMBER COM NUMBER COM NUMBER RPAREN
+
+    NUMBER          shift and go to state 33
+
+
+state 28
+
+    (4) expression -> ID CIRCLE LPAREN NUMBER COM . NUMBER COM NUMBER RPAREN
+
+    NUMBER          shift and go to state 34
+
+
+state 29
+
+    (6) expression -> ANIMATE LPAREN NUMBER COM NUMBER . COM NUMBER COM NUMBER RPAREN
+
+    COM             shift and go to state 35
+
+
+state 30
+
+    (5) expression -> IMAGE LPAREN ID COM NUMBER COM . NUMBER RPAREN
+
+    NUMBER          shift and go to state 36
+
+
+state 31
+
+    (1) expression -> CREATEFRAME LPAREN NUMBER COM NUMBER RPAREN .
+
+    $end            reduce using rule 1 (expression -> CREATEFRAME LPAREN NUMBER COM NUMBER RPAREN .)
+
+
+state 32
+
+    (2) expression -> ID RECTANGLE LPAREN NUMBER COM NUMBER . COM NUMBER COM NUMBER RPAREN
+
+    COM             shift and go to state 37
+
+
+state 33
+
+    (3) expression -> ID TRIANGLE LPAREN NUMBER COM NUMBER . COM NUMBER COM NUMBER COM NUMBER COM NUMBER RPAREN
+
+    COM             shift and go to state 38
+
+
+state 34
+
+    (4) expression -> ID CIRCLE LPAREN NUMBER COM NUMBER . COM NUMBER RPAREN
+
+    COM             shift and go to state 39
+
+
+state 35
+
+    (6) expression -> ANIMATE LPAREN NUMBER COM NUMBER COM . NUMBER COM NUMBER RPAREN
+
+    NUMBER          shift and go to state 40
+
+
+state 36
+
+    (5) expression -> IMAGE LPAREN ID COM NUMBER COM NUMBER . RPAREN
+
+    RPAREN          shift and go to state 41
+
+
+state 37
+
+    (2) expression -> ID RECTANGLE LPAREN NUMBER COM NUMBER COM . NUMBER COM NUMBER RPAREN
+
+    NUMBER          shift and go to state 42
+
+
+state 38
+
+    (3) expression -> ID TRIANGLE LPAREN NUMBER COM NUMBER COM . NUMBER COM NUMBER COM NUMBER COM NUMBER RPAREN
+
+    NUMBER          shift and go to state 43
+
+
+state 39
+
+    (4) expression -> ID CIRCLE LPAREN NUMBER COM NUMBER COM . NUMBER RPAREN
+
+    NUMBER          shift and go to state 44
+
+
+state 40
+
+    (6) expression -> ANIMATE LPAREN NUMBER COM NUMBER COM NUMBER . COM NUMBER RPAREN
+
+    COM             shift and go to state 45
+
+
+state 41
+
+    (5) expression -> IMAGE LPAREN ID COM NUMBER COM NUMBER RPAREN .
+
+    $end            reduce using rule 5 (expression -> IMAGE LPAREN ID COM NUMBER COM NUMBER RPAREN .)
+
+
+state 42
+
+    (2) expression -> ID RECTANGLE LPAREN NUMBER COM NUMBER COM NUMBER . COM NUMBER RPAREN
+
+    COM             shift and go to state 46
+
+
+state 43
+
+    (3) expression -> ID TRIANGLE LPAREN NUMBER COM NUMBER COM NUMBER . COM NUMBER COM NUMBER COM NUMBER RPAREN
+
+    COM             shift and go to state 47
+
+
+state 44
+
+    (4) expression -> ID CIRCLE LPAREN NUMBER COM NUMBER COM NUMBER . RPAREN
+
+    RPAREN          shift and go to state 48
+
+
+state 45
+
+    (6) expression -> ANIMATE LPAREN NUMBER COM NUMBER COM NUMBER COM . NUMBER RPAREN
+
+    NUMBER          shift and go to state 49
+
+
+state 46
+
+    (2) expression -> ID RECTANGLE LPAREN NUMBER COM NUMBER COM NUMBER COM . NUMBER RPAREN
+
+    NUMBER          shift and go to state 50
+
+
+state 47
+
+    (3) expression -> ID TRIANGLE LPAREN NUMBER COM NUMBER COM NUMBER COM . NUMBER COM NUMBER COM NUMBER RPAREN
+
+    NUMBER          shift and go to state 51
+
+
+state 48
+
+    (4) expression -> ID CIRCLE LPAREN NUMBER COM NUMBER COM NUMBER RPAREN .
+
+    $end            reduce using rule 4 (expression -> ID CIRCLE LPAREN NUMBER COM NUMBER COM NUMBER RPAREN .)
+
+
+state 49
+
+    (6) expression -> ANIMATE LPAREN NUMBER COM NUMBER COM NUMBER COM NUMBER . RPAREN
+
+    RPAREN          shift and go to state 52
+
+
+state 50
+
+    (2) expression -> ID RECTANGLE LPAREN NUMBER COM NUMBER COM NUMBER COM NUMBER . RPAREN
+
+    RPAREN          shift and go to state 53
+
+
+state 51
+
+    (3) expression -> ID TRIANGLE LPAREN NUMBER COM NUMBER COM NUMBER COM NUMBER . COM NUMBER COM NUMBER RPAREN
+
+    COM             shift and go to state 54
+
+
+state 52
+
+    (6) expression -> ANIMATE LPAREN NUMBER COM NUMBER COM NUMBER COM NUMBER RPAREN .
+
+    $end            reduce using rule 6 (expression -> ANIMATE LPAREN NUMBER COM NUMBER COM NUMBER COM NUMBER RPAREN .)
+
+
+state 53
+
+    (2) expression -> ID RECTANGLE LPAREN NUMBER COM NUMBER COM NUMBER COM NUMBER RPAREN .
+
+    $end            reduce using rule 2 (expression -> ID RECTANGLE LPAREN NUMBER COM NUMBER COM NUMBER COM NUMBER RPAREN .)
+
+
+state 54
+
+    (3) expression -> ID TRIANGLE LPAREN NUMBER COM NUMBER COM NUMBER COM NUMBER COM . NUMBER COM NUMBER RPAREN
+
+    NUMBER          shift and go to state 55
+
+
+state 55
+
+    (3) expression -> ID TRIANGLE LPAREN NUMBER COM NUMBER COM NUMBER COM NUMBER COM NUMBER . COM NUMBER RPAREN
+
+    COM             shift and go to state 56
+
+
+state 56
+
+    (3) expression -> ID TRIANGLE LPAREN NUMBER COM NUMBER COM NUMBER COM NUMBER COM NUMBER COM . NUMBER RPAREN
+
+    NUMBER          shift and go to state 57
+
+
+state 57
+
+    (3) expression -> ID TRIANGLE LPAREN NUMBER COM NUMBER COM NUMBER COM NUMBER COM NUMBER COM NUMBER . RPAREN
+
+    RPAREN          shift and go to state 58
+
+
+state 58
+
+    (3) expression -> ID TRIANGLE LPAREN NUMBER COM NUMBER COM NUMBER COM NUMBER COM NUMBER COM NUMBER RPAREN .
+
+    $end            reduce using rule 3 (expression -> ID TRIANGLE LPAREN NUMBER COM NUMBER COM NUMBER COM NUMBER COM NUMBER COM NUMBER RPAREN .)
+
