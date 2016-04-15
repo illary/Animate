@@ -16,7 +16,7 @@ def createRectangle(x0,y0,x1,y1,color):
     else:
         canvas=canvasarray[count]
         canvas.create_rectangle(x0,y0,x1,y1,fill=color)
-
+        canvas.update()
 
 def createCircle(x0,y0,radius,color):
     if(count == -1):
@@ -32,6 +32,7 @@ def createTriangle(x0,y0,x1,y1,x2,y2,color):
     else:
         canvas=canvasarray[count]
         canvas.create_polygon(x0,y0,x1,y1,x2,y2,fill=color)
+        canvas.update()
 
 def loadimage(image,x0,y0):
         global animation
@@ -56,3 +57,10 @@ def run(deltaX,deltaY,iterations,delay):
                 time.sleep(delay/1000)
                 animation.update()        
         print("Done");
+
+#createNewCanvas(2000,2000)
+#createRectangle(100,100,50,50,"red")
+#createRectangle(100,100,90,90,"blue")
+#createCircle(100,200,50,"green")
+#loadimage('testimage',500,500)
+#run(50,50,4,2000)
